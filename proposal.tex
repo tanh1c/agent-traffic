@@ -11,10 +11,7 @@
 \usepackage{fancyhdr}
 \usepackage{enumitem}
 \usepackage{hyperref}
-\usepackage{xcolor}
 \usepackage{amsmath}
-\usepackage{minted}
-\usemintedstyle{triendly}
 
 \geometry{
     a4paper,
@@ -31,30 +28,25 @@
     urlcolor=blue,
 }
 
-\pagenumbering{roman}
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{\textbf{GDGoC Hackathon Vietnam 2026}}
-\lhead{\textbf{TrafficFlow Agent - Proposal}}
+\lhead{\textbf{Hồ sơ dự án}}
 \cfoot{\thepage}
 
 \begin{document}
 
 \begin{titlepage}
     \centering
-    \vspace*{2cm}
+    \vspace*{1.5cm}
 
-    \textbf{\LARGE GDGoC Hackathon Vietnam 2026}\\[0.5cm]
-    \textbf{\Large Stage 1: Project Proposal}\\[2cm]
+    \textbf{HỒ SƠ DỰ ÁN}\\
+    \textbf{GDGoC HACKATHON VIETNAM 2026}\\[2cm]
 
-    \textbf{\Huge TrafficFlow Agent}\\[0.5cm]
-    \textbf{\Large Autonomous AI System for Smart Traffic Signal Control}\\[2cm]
-
-    \textbf{Theme:} ``Agents of Change''\\[1cm]
-
-    \textbf{Team Name:}\\
+    \textbf{Tên đội:}\\
     {[TÊN ĐỘI - CẦN CẬP NHẬT]}\\[1.5cm]
 
+    \textbf{Thành viên}\\[0.5cm]
     \begin{tabular}{|c|c|c|}
         \hline
         \textbf{STT} & \textbf{Họ và tên} & \textbf{Vai trò} \\
@@ -70,54 +62,47 @@
     \end{tabular}\\[2cm]
 
     \vfill
-    \textbf{Contact:}\\
-    Email: {[EMAIL - CẦN CẬP NHẬT]}\\
-    Phone: {[SỐ ĐIỆN THOẠI - CẦN CẬP NHẬT]}\\[1cm]
-
-    \textbf{\today}
 \end{titlepage}
 
 \newpage
-\pagenumbering{roman}
-\tableofcontents
-\newpage
-\pagenumbering{arabic}
 
 % ============================================
-\section{TỔNG QUAN DỰ ÁN}
+\section{Tổng quan dự án}
 % ============================================
 
 \subsection{Tên dự án}
 \textbf{TrafficFlow Agent} — Hệ thống Agentic AI Tự động Điều phối Giao thông Thông minh
 
-\subsection{Elevator Pitch}
+\subsection{Mô tả ngắn gọn}
 
-\textbf{Vấn đề:} Mỗi ngày, hàng triệu người dân TP.HCM mắc kẹt trong ùn tắc tại các ngã tư như Trường Chinh – Cách Mạng Tháng 8, lãng phí hàng giờ chờ đợi dưới nắng mưa. Hệ thống đèn tín hiệu chạy theo lịch cố định không thích ứng với thực tế, trong khi cảnh sát giao thông phải điều phối thủ công trong điều kiện khắc nghiệt.
+Mỗi ngày, hàng triệu người dân TP.HCM mắc kẹt trong ùn tắc tại các ngã tư như Trường Chinh – Cách Mạng Tháng 8, lãng phí hàng giờ chờ đợi dưới nắng mưa. Hệ thống đèn tín hiệu chạy theo lịch cố định không thích ứng với thực tế, trong khi cảnh sát giao thông phải điều phối thủ công trong điều kiện khắc nghiệt.
 
-\textbf{Giải pháp:} TrafficFlow Agent là hệ thống AI tự chủ sử dụng camera real-time và dữ liệu Google Maps để phát hiện ùn tắt theo phương pháp hybrid (mật độ + tốc độ + độ dài hàng đợi), suy luận qua LLM đa nhà cung cấp (Groq / OpenRouter / Alibaba Qwen) để đưa ra quyết định điều chỉnh đèn tín hiệu tối ưu.
+\textbf{Giải pháp đề xuất:} TrafficFlow Agent là hệ thống AI tự chủ sử dụng camera real-time và dữ liệu Google Maps để phát hiện ùn tắt theo phương pháp hybrid (mật độ + tốc độ + độ dài hàng đợi), suy luận qua LLM đa nhà cung cấp (Groq / OpenRouter / Alibaba Qwen) để đưa ra quyết định điều chỉnh đèn tín hiệu tối ưu.
 
-\textbf{Đối tượng:} Người tham gia giao thông tại TP.HCM, đặc biệt khu vực đông đúc; cảnh sát giao thông (CSGT); cơ quan quản lý giao thông đô thị.
+\textbf{Đối tượng được hưởng lợi:} Người tham gia giao thông tại TP.HCM (giảm thời gian chờ 15--25\%); cảnh sát giao thông CSGT (giảm áp lực điều phối thủ công); doanh nghiệp logistics (giảm chi phí vận chuyển).
 
-\textbf{Giá trị mang lại:} Giảm thời gian chờ trung bình 15–25\%, giảm độ dài hàng đợi 15–30\%, tăng throughput 10–20\%, giảm phụ thuộc vào điều phối thủ công của CSGT, giảm ô nhiễm môi trường do kẹt xe kéo dài.
+\subsection{Dự án sử dụng Agentic AI như thế nào?}
 
-\subsection{Tại sao Agentic AI?}
-
-Hệ thống của bạn thể hiện tính Agentic như thế nào?
+TrafficFlow Agent hoạt động như một AI Agent thực sự, không chỉ là mô hình AI đơn giản:
 
 \begin{itemize}
-    \item[\textbf{\textbullet}] \textbf{Goal:} Agent luôn có mục tiêu rõ ràng — giảm thời gian chờ trung bình và tránh gridlock. Mọi hành động đều được đo lường và đánh giá theo KPI cụ thể.
-    \item[\textbf{\textbullet}] \textbf{Planning:} Agent dùng LLM (Groq/OpenRouter/Alibaba Qwen) để phân tích tình hình giao thông đa chiều (density, speed, queue, thời gian, ngày trong tuần), đề xuất chiến lược điều chỉnh đèn với reasoning chain rõ ràng — không chỉ là rule-based đơn giản.
-    \item[\textbf{\textbullet}] \textbf{Autonomy:} Agent tự quyết định và tự điều chỉnh cho các tình huống thông thường mà không cần chờ lệnh từ con người. Chỉ hỏi human approval khi phát hiện tình huống nghiêm trọng (tai nạn, sự kiện đặc biệt).
-    \item[\textbf{\textbullet}] \textbf{Feedback Loop:} Sau mỗi hành động điều chỉnh đèn, agent liên tục observe lại trạng thái giao thông mới qua camera và Google Maps $\rightarrow$ re-analyze $\rightarrow$ re-decide. Cycle liên tục để đảm bảo hệ thống luôn thích ứng với thực tế.
+    \item \textbf{Tự lập kế hoạch và thực hiện nhiều bước:} Agent tuân theo chu trình Observe $\rightarrow$ Reason $\rightarrow$ Decide $\rightarrow$ Act $\rightarrow$ Feedback. Mỗi bước nối tiếp nhau, agent liên tục điều chỉnh kế hoạch dựa trên kết quả hành động trước đó.
+
+    \item \textbf{Sử dụng nhiều công cụ bên ngoài:} Agent dùng đồng thời nhiều API và công cụ: YOLO v8 để detect và đếm xe từ camera; Google Maps Traffic API để lấy speed data và incident reports; Weather API để điều chỉnh baseline theo thời tiết; LLM (Groq/OpenRouter/Alibaba) để suy luận và đề xuất hành động.
+
+    \item \textbf{Phân tích và đưa ra quyết định:} Agent phân tích dữ liệu đa chiều (mật độ xe, tốc độ di chuyển, độ dài hàng đợi, thời gian trong ngày, ngày trong tuần) và đưa ra quyết định điều chỉnh đèn cụ thể (kéo dài/rút ngắn đèn xanh bao nhiêu giây, ở hướng nào).
+
+    \item \textbf{Ghi nhớ thông tin và bối cảnh:} Agent duy trì trạng thái giao thông liên tục, so sánh với baseline lịch sử, và học từ kết quả các quyết định trước đó để cải thiện chất lượng phản hồi.
 \end{itemize}
 
 % ============================================
-\section{BÀI TOÁN VÀ GIẢI PHÁP}
+\section{Vấn đề và giải pháp}
 % ============================================
 
-\subsection{Problem Statement}
+\subsection{Đặt vấn đề}
 
-\subsubsection{Ai bị ảnh hưởng?}
+\subsubsection{Vấn đề này ảnh hưởng đến ai?}
+
 \begin{itemize}
     \item Hàng triệu người dân TP.HCM — đặc biệt khu vực Trường Chinh, Cách Mạng Tháng 8, quận Tân Bình, quận 3
     \item Tài xế xe buýt, tài xế xe công nghệ (Grab, Be, Gojek)
@@ -125,221 +110,208 @@ Hệ thống của bạn thể hiện tính Agentic như thế nào?
     \item Doanh nghiệp logistics chịu thiệt hại do chậm trễ vận chuyển
 \end{itemize}
 
-\subsubsection{Tại sao quan trọng?}
+\subsubsection{Tại sao vấn đề này quan trọng?}
+
 \begin{itemize}
-    \item TP.HCM có $>$ 8 triệu xe máy, $>$ 800.000 ô tô (theo số liệu Sở GTVT)
-    \item Ùn tắt gây thiệt hại kinh tế ước tính 1.2–1.5\% GDP mỗi năm
-    \item Khí thải từ xe chờ ùn tắt gây ô nhiễm, ảnh hưởng sức khỏe
+    \item TP.HCM có hơn 8 triệu xe máy, hơn 800.000 ô tô (theo số liệu Sở GTVT)
+    \item Ùn tắt gây thiệt hại kinh tế ước tính 1.2--1.5\% GDP mỗi năm
+    \item Khí thải từ xe chờ ùn tắt gây ô nhiễm không khí, ảnh hưởng sức khỏe người dân
     \item CSGT làm việc quá tải trong điều kiện thời tiết khắc nghiệt
 \end{itemize}
 
-\subsubsection{Giải pháp hiện tại còn thiếu gì?}
+\subsubsection{Các giải pháp hiện tại còn hạn chế gì?}
+
 \begin{itemize}
     \item Đèn tín hiệu tại hầu hết các ngã tư chạy theo lịch cố định, không thích ứng với mật độ thực tế
-    \item Không có hệ thống tự động phát hiện + phản ứng nhanh với ùn tắt theo real-time
-    \item Google Maps chỉ thấy ``đoạn đường đỏ'' (GPS probe data) nhưng không biết nguyên nhân và không điều khiển được đèn
+    \item Không có hệ thống tự động phát hiện và phản ứng nhanh với ùn tắt theo thời gian thực
+    \item Google Maps chỉ thấy ``đoạn đường đỏ'' (dữ liệu GPS probe) nhưng không biết nguyên nhân và không điều khiển được đèn tín hiệu
     \item CSGT phải có mặt trực tiếp hoặc được gọi đến khi tình huống xấu đi
 \end{itemize}
 
-\subsection{Key Questions}
+\subsection{Câu hỏi đặt ra}
 
 \begin{enumerate}
-    \item \textbf{Làm sao AI có thể tự giải quyết bài toán giao thông?} $\rightarrow$ AI phân tích dữ liệu từ camera (YOLO) + Google Maps theo thời gian thực, đánh giá mức độ ùn tắt, và đưa ra quyết định điều chỉnh đèn dựa trên reasoning — không chỉ rule cố định.
+    \item \textbf{Làm thế nào để AI có thể tự động giải quyết các nhiệm vụ phức tạp?} $\rightarrow$ TrafficFlow Agent sử dụng chu trình agentic: Observe (quan sát dữ liệu từ camera và Maps) $\rightarrow$ Reason (suy luận qua LLM) $\rightarrow$ Decide (quyết định hành động) $\rightarrow$ Act (điều chỉnh đèn) $\rightarrow$ Feedback (quan sát kết quả và tiếp tục loop). Mỗi bước được thực hiện tự động, agent không cần chờ lệnh từ con người.
 
-    \item \textbf{Làm sao AI dùng nhiều công cụ (tools)?} $\rightarrow$ Agent dùng đồng thời: (1) YOLO để detect và đếm xe, (2) Google Maps API để lấy speed data, (3) LLM để reason và đề xuất action, (4) Simulation engine để visualize kết quả, (5) Dashboard để human-in-the-loop khi cần.
+    \item \textbf{Làm sao để AI có thể sử dụng nhiều công cụ khác nhau để hoàn thành nhiệm vụ?} $\rightarrow$ Agent được thiết kế để gọi đồng thời nhiều công cụ: YOLO v8 (xử lý hình ảnh camera), Google Maps API (dữ liệu giao thông tổng thể), Weather API (điều chỉnh theo thời tiết), LLM API (suy luận và lập kế hoạch), Simulation Engine (trực quan hóa kết quả), Dashboard (giám sát và human approval).
 
-    \item \textbf{Làm sao đảm bảo độ tin cậy của hệ thống?} $\rightarrow$ Human-in-the-loop: agent chỉ tự động apply cho case thường; case nghiêm trọng (tai nạn, gridlock) luôn chờ approval từ CSGT trước khi hành động. A/B test evaluation đo lường hiệu quả thực tế qua simulation. Multi-provider LLM fallback đảm bảo hệ thống không bị down khi một provider lỗi.
+    \item \textbf{Làm sao để đảm bảo AI hoạt động một cách minh bạch và đáng tin cậy?} $\rightarrow$ Hệ thống có cơ chế Human-in-the-Loop: trong tình huống nghiêm trọng (tai nạn, gridlock), agent luôn gửi đề xuất lên dashboard để CSGT duyệt trước khi hành động. Quyết định chỉ được apply sau 30 giây nếu không ai phản hồi. Ngoài ra, multi-provider LLM (Groq $\rightarrow$ OpenRouter $\rightarrow$ Alibaba) đảm bảo hệ thống không bị gián đoạn khi một provider lỗi.
 \end{enumerate}
 
-\subsection{Proposed Solution}
+\subsection{Giải pháp đề xuất}
 
-\subsubsection{System Overview}
+\subsubsection{Hệ thống hoạt động như thế nào}
 
-TrafficFlow Agent là hệ thống hybrid gồm 3 lớp dữ liệu:
+TrafficFlow Agent là hệ thống hybrid gồm 3 lớp chính:
 
 \begin{enumerate}
-    \item \textbf{Camera Real-time (YOLO):} Chi tiết cục bộ — số xe từng làn, loại phương tiện, queue length cụ thể
-    \item \textbf{Google Maps Traffic API:} Tầm nhìn tổng thể — speed per segment, congestion color, incident reports
-    \item \textbf{AI Agent (LLM):} Congestion Detection $\rightarrow$ Reasoning \& Planning $\rightarrow$ Decision Engine
+    \item \textbf{Lớp dữ liệu đầu vào:} Camera real-time (YOLO v8) cung cấp chi tiết cục bộ (số xe từng làn, loại phương tiện, queue length); Google Maps Traffic API cung cấp tầm nhìn tổng thể (speed per segment, congestion color, incident reports); Weather API và Calendar API cung cấp bối cảnh bổ sung.
+
+    \item \textbf{Lớp AI Agent:} Agent thực hiện chu trình liên tục: quan sát trạng thái giao thông $\rightarrow$ phân tích mức độ ùn tắt (density + speed + queue) $\rightarrow$ suy luận qua LLM để đề xuất chiến lược $\rightarrow$ quyết định hành động (tự động hoặc chờ human approval) $\rightarrow$ apply vào đèn tín hiệu $\rightarrow$ quan sát kết quả và loop lại.
+
+    \item \textbf{Lớp đầu ra:} Simulation Engine để demo trực quan; SCATS/ITMS API (tương lai) để kết nối hệ thống đèn thực tế; Dashboard CSGT để giám sát và duyệt quyết định nghiêm trọng.
 \end{enumerate}
 
-Đầu ra:
-\begin{itemize}
-    \item Simulation Engine (Demo)
-    \item SCATS/ITMS API (Future-ready)
-    \item Dashboard CSGT (Real-time monitoring + Human approval)
-\end{itemize}
-
-\subsubsection{Agent Workflow}
+\subsubsection{Các bước chính trong quá trình xử lý}
 
 \begin{enumerate}
-    \item \textbf{Input:} Camera frames (YOLO) + Google Maps data $\rightarrow$ ghép thành bức tranh toàn diện
-    \item \textbf{Analysis:} Congestion Detector phân tích density + speed + queue length $\rightarrow$ phân loại mức độ ùn tắt
-    \item \textbf{Planning:} LLM đa nhà cung cấp suy luận tình huống, đề xuất chiến lược điều chỉnh đèn
-    \item \textbf{Action:} Apply quyết định vào simulation (demo) hoặc SCATS/ITMS (thực tế)
-    \item \textbf{Feedback:} Quan sát kết quả $\rightarrow$ loop lại bước 1
+    \item \textbf{Input:} Camera frames (qua YOLO) + Google Maps data $\rightarrow$ ghép thành bức tranh toàn diện về tình trạng giao thông
+    \item \textbf{Analysis:} Congestion Detector phân tích density + speed + queue length $\rightarrow$ phân loại mức độ ùn tắt (clear / moderate / heavy / gridlock)
+    \item \textbf{Planning:} LLM đa nhà cung cấp (Groq / OpenRouter / Alibaba Qwen) suy luận tình huống, đề xuất chiến lược điều chỉnh đèn cụ thể
+    \item \textbf{Action:} Tự động apply cho case thường; chờ CSGT duyệt cho case nghiêm trọng (30 giây timeout)
+    \item \textbf{Feedback:} Quan sát kết quả hành động $\rightarrow$ loop lại bước 1
 \end{enumerate}
 
-\subsubsection{Key Features}
-
-\begin{enumerate}
-    \item \textbf{Hybrid Congestion Detection:} Kết hợp camera (YOLO) + Google Maps để phát hiện ùn tắt chính xác hơn bất kỳ giải pháp đơn lẻ nào. Camera thấy chi tiết từng làn; Maps thấy bức tranh toàn tuyến.
-
-    \item \textbf{LLM-Powered Reasoning Agent:} Agent dùng LLM (Groq / OpenRouter / Alibaba Qwen) để reason theo chuỗi, đề xuất action cụ thể kèm giải thích. Multi-provider fallback đảm bảo độ sẵn sàng.
-
-    \item \textbf{Human-in-the-Loop Dashboard:} CSGT giám sát real-time trên dashboard, nhận notification khi agent cần approval cho case nghiêm trọng. Quyết định được apply sau 30s nếu không ai phản hồi.
-\end{enumerate}
-
-\subsubsection{Unique Selling Point (USP)}
+\subsubsection{Điểm khác biệt của giải pháp}
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{|l|p{6cm}|p{6cm}|}
+    \begin{tabular}{|l|p{5.5cm}|p{5.5cm}|}
         \hline
         \textbf{So sánh} & \textbf{Google Maps Traffic} & \textbf{TrafficFlow Agent} \\
         \hline
-        Dữ liệu & GPS probe (điện thoại ẩn danh) & Camera real-time + GPS \\
+        Dữ liệu nguồn & GPS probe (điện thoại ẩn danh) & Camera real-time + GPS \\
         \hline
-        Độ chi tiết & Toàn tuyến, không phân biệt làn & Từng làn, từng loại xe \\
+        Độ chi tiết & Toàn tuyến, không phân biệt làn xe & Từng làn, từng loại phương tiện \\
         \hline
-        Phát hiện sự cố & Không (chỉ thấy đỏ) & Phát hiện tai nạn, vật cản \\
+        Phát hiện sự cố & Không (chỉ thấy đỏ) & Phát hiện tai nạn, vật cản trực tiếp \\
         \hline
-        Điều khiển đèn & Không & Có (qua SCATS/ITMS API) \\
+        Điều khiển đèn & Không thể & Có (tích hợp SCATS/ITMS API) \\
         \hline
-        Tính Agentic & Không & Có (reasoning, planning, autonomy) \\
+        Tính Agentic & Không & Có (reasoning, planning, autonomy, feedback loop) \\
         \hline
     \end{tabular}
 \end{table}
 
-\textbf{Điểm khác biệt cốt lõi:} Camera thấy được ``tại sao'' đoạn đường đỏ (tai nạn? làn nào tắt? xe gì?) trong khi Google Maps chỉ thấy ``đoạn đường đỏ'' mà không biết nguyên nhân.
+\textbf{Điểm khác biệt cốt lõi:} Camera thấy được ``tại sao'' đoạn đường đỏ (tai nạn? làn nào tắt? xe gì?) trong khi Google Maps chỉ thấy ``đoạn đường đỏ'' mà không biết nguyên nhân. Không có giải pháp nào tại Việt Nam hiện tại kết hợp camera + LLM agent + Maps cho điều phối đèn tín hiệu.
+
+\subsubsection{Các tính năng chính}
+
+\begin{enumerate}
+    \item \textbf{Hybrid Congestion Detection:} Kết hợp camera (YOLO) + Google Maps để phát hiện ùn tắt chính xác hơn bất kỳ giải pháp đơn lẻ nào. Camera thấy chi tiết từng làn; Maps thấy bức tranh toàn tuyến. Thuật toán tính điểm ùn tắt: Score = density $\times$ 0.4 + (50 -- speed) $\times$ 0.3 + queue/10 $\times$ 0.3.
+
+    \item \textbf{LLM-Powered Reasoning Agent:} Agent dùng LLM đa nhà cung cấp (Groq / OpenRouter / Alibaba Qwen) để reason theo chuỗi, đề xuất action cụ thể kèm giải thích. Multi-provider fallback đảm bảo độ sẵn sàng cao.
+
+    \item \textbf{Human-in-the-Loop Dashboard:} CSGT giám sát real-time trên dashboard, nhận thông báo khi agent cần approval cho case nghiêm trọng. Quyết định được apply sau 30 giây nếu không ai phản hồi — đảm bảo an toàn và minh bạch.
+\end{enumerate}
 
 % ============================================
-\section{STACK CÔNG NGHỆ}
+\section{Công nghệ dự kiến sử dụng}
 % ============================================
 
-\subsection{AI \& Machine Learning}
+\subsection{Công nghệ AI}
 
 \begin{itemize}
-    \item \textbf{LLM:} Groq API / OpenRouter / Alibaba Qwen (multi-provider, flexible — dùng nhiều nguồn để đảm bảo availability + tối ưu chi phí)
-    \item \textbf{Agent Framework:} LangChain / LangGraph (để xây reasoning chain rõ ràng, trace được)
+    \item \textbf{Large Language Models (LLM):} Groq API / OpenRouter / Alibaba Qwen (multi-provider — dùng nhiều nguồn để đảm bảo availability và tối ưu chi phí)
+    \item \textbf{Framework AI Agent:} LangChain / LangGraph (xây reasoning chain rõ ràng, trace được, quản lý tools)
     \item \textbf{Object Detection:} YOLO v8 (vehicle counting, classification, tracking) — xử lý real-time trên edge hoặc cloud
-    \item \textbf{Embedding:} Không cần (dùng LLM trực tiếp cho reasoning)
+    \item \textbf{Embedding Models:} Không cần thiết (dùng LLM trực tiếp cho reasoning, không dùng RAG)
+    \item \textbf{Vector Database:} Không cần thiết (hệ thống không sử dụng retrieval-augmented generation)
 \end{itemize}
 
-\subsection{Infrastructure}
+\subsection{Hạ tầng}
 
 \begin{itemize}
-    \item \textbf{Cloud:} Google Cloud Platform (align với GDG — có thể dùng Google Cloud credits từ hackathon)
-    \item \textbf{Backend:} Next.js API routes (frontend + backend cùng stack, đơn giản hóa deployment)
-    \item \textbf{Deployment:} Vercel / Google Cloud Run (fast, free tier đủ cho demo)
+    \item \textbf{Google Cloud Platform:} Cloud chính (align với GDG — có thể dùng Google Cloud credits từ hackathon)
+    \item \textbf{Firebase Firestore:} Database real-time cho dashboard, lưu trạng thái giao thông liên tục
+    \item \textbf{Docker:} Container hóa các service để deployment nhất quán
 \end{itemize}
 
-\subsection{Development}
+\subsection{Công nghệ phát triển}
 
 \begin{itemize}
-    \item \textbf{Frontend:} Next.js 14+ (App Router) + React + Tailwind CSS
-    \item \textbf{Database:} Firebase Firestore (real-time state cho dashboard)
-    \item \textbf{Simulation Engine:} Custom web-based (Canvas/SVG cho visualization)
-    \item \textbf{Camera Processing:} YOLO v8 (via Python backend hoặc ONNX runtime on browser)
+    \item \textbf{Frontend:} Next.js 14+ (App Router) + React + Tailwind CSS — dashboard web trực quan
+    \item \textbf{Backend:} Next.js API Routes (frontend + backend cùng stack, đơn giản hóa deployment)
+    \item \textbf{Database:} Firebase Firestore (real-time state), Cloud Storage (historical logs)
+    \item \textbf{Simulation Engine:} Custom web-based (Canvas/SVG cho trực quan hóa giao thông)
+    \item \textbf{Camera Processing:} YOLO v8 (Python backend hoặc ONNX runtime)
+    \item \textbf{AI Tools:} Groq SDK, OpenRouter API, Alibaba Qwen API
 \end{itemize}
 
-\subsection{Competitive Advantage}
+\subsection{Điểm mạnh cạnh tranh}
 
-\textbf{Điểm mạnh công nghệ:}
 \begin{itemize}
-    \item Kết hợp 3 nguồn dữ liệu: Camera + Maps + Weather (contextual)
-    \item Multi-provider LLM: không phụ thuộc một nhà cung cấp duy nhất
-    \item YOLO real-time detection: xử lý video stream trực tiếp, không cần gửi raw video
-\end{itemize}
-
-\textbf{Khả năng mở rộng:}
-\begin{itemize}
-    \item Thêm ngã tư mới: chỉ cần thêm camera + update config
-    \item Mở rộng features: ưu tiên xe cấp cứu, dự báo tắt, tích hợp thêm Maps API
-    \item Scale lên toàn thành phố: dùng distributed agent coordination
-\end{itemize}
-
-\textbf{Tính độc đáo:}
-\begin{itemize}
-    \item Chưa có giải pháp tại Việt Nam kết hợp camera + LLM agent + Maps cho điều phối đèn tín hiệu
-    \item Human-in-the-loop design an toàn và thực tế cho context Việt Nam
+    \item \textbf{Kết hợp đa nguồn dữ liệu:} Camera + Maps + Weather + Calendar — bức tranh toàn diện về tình trạng giao thông, không phụ thuộc một nguồn duy nhất
+    \item \textbf{Multi-provider LLM:} Không phụ thuộc một nhà cung cấp LLM duy nhất, đảm bảo hệ thống luôn sẵn sàng
+    \item \textbf{YOLO real-time detection:} Xử lý video stream trực tiếp, phát hiện từng làn xe và loại phương tiện — vượt trội so với GPS probe data thuần túy
+    \item \textbf{Human-in-the-loop design:} An toàn và thực tế cho context Việt Nam, CSGT luôn kiểm soát được quyết định của agent
+    \item \textbf{Khả năng mở rộng:} Thêm ngã tư mới chỉ cần thêm camera + update config; scale lên toàn thành phố với distributed agent coordination
 \end{itemize}
 
 % ============================================
-\section{ĐỐI TƯỢNG NGƯỜI DÙNG}
+\section{Đối tượng sử dụng}
 % ============================================
 
 \subsection{Cảnh sát giao thông (CSGT)}
+
 \begin{itemize}
     \item Dashboard giám sát thời gian thực $\rightarrow$ giảm áp lực điều phối thủ công
-    \item Nhận notification khi cần can thiệp $\rightarrow$ tập trung vào tình huống thực sự nghiêm trọng
+    \item Nhận thông báo khi cần can thiệp $\rightarrow$ tập trung vào tình huống thực sự nghiêm trọng
+    \item Duyệt quyết định của agent cho case nghiêm trọng $\rightarrow$ luôn kiểm soát được hệ thống
 \end{itemize}
 
 \subsection{Cơ quan quản lý giao thông đô thị}
+
 \begin{itemize}
-    \item Dashboard tổng quan cho nhiều ngã tư
-    \item Báo cáo A/B test $\rightarrow$ đánh giá hiệu quả các phương án điều chỉnh
+    \item Dashboard tổng quan cho nhiều ngã tư cùng lúc
+    \item Báo cáo A/B test để đánh giá hiệu quả các phương án điều chỉnh đèn
+    \item Dữ liệu lịch sử để phân tích xu hướng giao thông
 \end{itemize}
 
 \subsection{Người dân tham gia giao thông}
-\begin{itemize}
-    \item Giảm thời gian chờ, giảm stress khi di chuyển
-    \item (Future) Nhận thông báo từ app về tình trạng giao thông phía trước
-\end{itemize}
 
-\subsection{Use case cụ thể}
 \begin{itemize}
-    \item Giờ cao điểm 7:00–9:00 và 17:00–19:00 tại Trường Chinh – Cách Mạng Tháng 8
-    \item Sự kiện đặc biệt (concert, giải bóng đá) gần khu vực
-    \item Thời tiết xấu (mưa) $\rightarrow$ baseline tự điều chỉnh
+    \item Giảm thời gian chờ 15--25\% khi di chuyển qua các ngã tư
+    \item Giảm stress và tiết kiệm nhiên liệu
+    \item (Tương lai) Nhận thông báo từ ứng dụng về tình trạng giao thông phía trước
 \end{itemize}
 
 % ============================================
-\section{TÍNH KHẢ THI}
+\section{Tính khả thi}
 % ============================================
 
-\subsection{Development Plan}
+\subsection{Kế hoạch phát triển}
 
-\subsubsection{During Hackathon}
+\subsubsection{Trong thời gian hackathon}
 
-\textbf{Day 1 — Foundation \& Core Demo:}
+\textbf{Ngày 1 — Nền tảng và Demo cơ bản:}
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{|p{3cm}|p{10cm}|}
+    \begin{tabular}{|p{3cm}|p{9.5cm}|}
         \hline
         \textbf{Thời gian} & \textbf{Nhiệm vụ} \\
         \hline
-        Sáng (9:00–12:00) & Setup Next.js project, folder structure, TypeScript types \\
+        Sáng (9:00--12:00) & Setup Next.js project, cấu trúc thư mục, TypeScript types \\
         \hline
-        Trưa (12:00–13:00) & Demo simulation engine (bản đồ + xe di chuyển baseline) \\
+        Trưa (12:00--13:00) & Demo simulation engine (bản đồ + xe di chuyển baseline) \\
         \hline
-        Chiều (13:00–18:00) & Tích hợp mock YOLO (vehicle generator + congestion detector) \\
+        Chiều (13:00--18:00) & Tích hợp mock YOLO (vehicle generator + congestion detector) \\
         \hline
-        Tối (18:00–22:00) & Kết nối Google Maps Traffic API (hoặc mock fallback) \\
+        Tối (18:00--22:00) & Kết nối Google Maps Traffic API (hoặc mock fallback) \\
         \hline
-        Đêm (22:00–24:00) & Baseline simulation chạy $\rightarrow$ record metrics (Agent OFF) \\
+        Đêm (22:00--24:00) & Baseline simulation chạy $\rightarrow$ ghi nhận metrics (Agent OFF) \\
         \hline
     \end{tabular}
 \end{table}
 
-\textbf{Day 2 — Agent \& Polish:}
+\textbf{Ngày 2 — Agent và Hoàn thiện:}
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{|p{3cm}|p{10cm}|}
+    \begin{tabular}{|p{3cm}|p{9.5cm}|}
         \hline
         \textbf{Thời gian} & \textbf{Nhiệm vụ} \\
         \hline
-        Sáng (9:00–12:00) & Tích hợp LLM agent (multi-provider + reasoning chain) \\
+        Sáng (9:00--12:00) & Tích hợp LLM agent (multi-provider + reasoning chain) \\
         \hline
-        Trưa (12:00–13:00) & Hoàn thiện Dashboard (map view + metrics + agent status) \\
+        Trưa (12:00--13:00) & Hoàn thiện Dashboard (map view + metrics + agent status) \\
         \hline
-        Chiều (13:00–17:00) & A/B test: chạy Agent ON $\rightarrow$ generate comparison report \\
+        Chiều (13:00--17:00) & A/B test: chạy Agent ON $\rightarrow$ tạo báo cáo so sánh \\
         \hline
-        Chiều muộn (17:00–19:00) & Hoàn thiện slide deck \\
+        Chiều muộn (17:00--19:00) & Hoàn thiện slide deck \\
         \hline
-        Tối (19:00–22:00) & Full demo run-through, fix bugs, prepare submission \\
+        Tối (19:00--22:00) & Full demo run-through, fix bugs, chuẩn bị nộp \\
         \hline
     \end{tabular}
 \end{table}
@@ -351,127 +323,80 @@ TrafficFlow Agent là hệ thống hybrid gồm 3 lớp dữ liệu:
     \item Slide deck: 10 slides theo proposal template
 \end{itemize}
 
-\subsubsection{Post-hackathon}
+\subsubsection{Sau hackathon}
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{|p{3cm}|p{10cm}|}
+    \begin{tabular}{|p{3cm}|p{9.5cm}|}
         \hline
         \textbf{Giai đoạn} & \textbf{Mục tiêu} \\
         \hline
-        MVP (1–2 tháng) & Thêm public traffic cameras, tích hợp SCATS API thực tế \\
+        MVP (1--2 tháng) & Thêm public traffic cameras, tích hợp SCATS API thực tế \\
         \hline
-        Beta (3–4 tháng) & Pilot tại 3–5 ngã tư ở TP.HCM, thu thập feedback \\
+        Beta (3--4 tháng) & Pilot tại 3--5 ngã tư ở TP.HCM, thu thập phản hồi \\
         \hline
         Scale (6+ tháng) & Mở rộng toàn thành phố, tích hợp phương tiện ưu tiên \\
         \hline
     \end{tabular}
 \end{table}
 
-\subsection{Budget}
+\subsubsection{Tính khả thi khi áp dụng vào thực tế}
 
-\begin{table}[h]
-    \centering
-    \begin{tabular}{|l|r|}
-        \hline
-        \textbf{Hạng mục} & \textbf{Chi phí ước tính (USD)} \\
-        \hline
-        Google Cloud Platform & $\sim$\$0–\$50 (credits từ hackathon GCP) \\
-        \hline
-        API Calls (LLM - Groq/OpenRouter) & $\sim$\$5–\$20 (tuỳ usage) \\
-        \hline
-        Google Maps API & $\sim$\$0–\$50 (free tier đủ cho demo) \\
-        \hline
-        Domain + Hosting (Vercel) & \$0 (free tier) \\
-        \hline
-        Tools \& Libraries & \$0 (tất cả open source) \\
-        \hline
-        \textbf{Total ước tính} & \textbf{\textasciitilde\$5–\$120} \\
-        \hline
-    \end{tabular}
-\end{table}
+\begin{itemize}
+    \item \textbf{Kỹ thuật:} Các công nghệ đều đã proven (YOLO, LLM, Maps API) — không có rủi ro công nghệ lớn
+    \item \textbf{Hạ tầng:} Google Cloud Platform cung cấp đủ tài nguyên, có GCP credits từ hackathon
+    \item \textbf{Nhân lực:} 3--4 thành viên đủ để hoàn thành MVP trong 2 ngày hackathon
+    \item \textbfChi phí:} Rất thấp (xem mục ngân sách bên dưới)
+    \item \textbf{Xã hội:} Giải pháp được thiết kế phù hợp với context Việt Nam, có human-in-the-loop để đảm bảo an toàn
+\end{itemize}
+
+\subsection{Ngân sách dự kiến}
+
+\begin{itemize}
+    \item \textbf{Hạ tầng Cloud (Google Cloud Platform):} Sử dụng gói miễn phí cho sinh viên — chi phí \$0--\$50 (credits từ hackathon GCP)
+    \item \textbf{Mô hình AI (Groq/OpenRouter):} Sử dụng API miễn phí hoặc gói rẻ — chi phí \$5--\$20 tùy usage
+    \item \textbf{Google Maps API:} Free tier đủ cho demo — chi phí \$0--\$50
+    \item \textbf{Domain + Hosting (Vercel):} Free tier — chi phí \$0
+    \item \textbf{Công cụ phát triển:} Tất cả đều mã nguồn mở — chi phí \$0
+    \item \textbf{Tổng chi phí dự kiến: Rất thấp / gần như miễn phí} (\$5--\$120)
+\end{itemize}
 
 % ============================================
-\section{TÁC ĐỘNG}
-% ============================================
-
-\subsection{KPI đo hiệu quả}
-
-\begin{table}[h]
-    \centering
-    \begin{tabular}{|p{4cm}|p{3cm}|p{3cm}|p{3cm}|}
-        \hline
-        \textbf{Chỉ số} & \textbf{Baseline (Agent OFF)} & \textbf{Target (Agent ON)} & \textbf{Mục tiêu} \\
-        \hline
-        Thời gian chờ TB & 60–90s (ước tính) & 45–68s & $\downarrow$ 15–25\% \\
-        \hline
-        Độ dài hàng đợi TB & 200–300m & 140–255m & $\downarrow$ 15–30\% \\
-        \hline
-        Số lần dừng TB & 3–5 lần/xe & 2–4 lần/xe & $\downarrow$ 10–20\% \\
-        \hline
-        Throughput (xe/phút) & 80–100 & 90–120 & $\uparrow$ 10–20\% \\
-        \hline
-        Số vụ gridlock/ngày & 2–3 & 0–1 & $\downarrow$ 50–70\% \\
-        \hline
-    \end{tabular}
-\end{table}
-
-\textit{Các con số baseline dựa trên simulation với cấu hình đèn cố định tại Trường Chinh – Cách Mạng Tháng 8.}
-
-\subsection{Giá trị mang lại}
-
-\textbf{Cá nhân:} Giảm thời gian di chuyển 10–20 phút/ngày cho người đi lại qua khu vực; giảm stress, tiết kiệm nhiên liệu
-
-\textbf{Tổ chức:} CSGT giảm áp lực điều phối thủ công, tập trung vào tình huống nghiêm trọng; công ty logistics giảm chi phí vận chuyển
-
-\textbf{Xã hội:} Giảm khí thải từ xe ùn tắt (ước tính giảm 5–10\% CO$_2$ tại khu vực); cải thiện chất lượng không khí đô thị; nâng cao hình ảnh TP.HCM hiện đại, ứng dụng công nghệ AI
-
-% ============================================
-\section{REFERENCES}
+\section{Tài liệu tham khảo}
 % ============================================
 
 \begin{thebibliography}{99}
+    \bibitem{langchain} LangChain Documentation. \url{https://docs.langchain.com/}
 
-    \bibitem{langchain}
-    LangChain Documentation. \url{https://docs.langchain.com/}
+    \bibitem{yolo} YOLO v8 (Ultralytics). \url{https://docs.ultralytics.com/}
 
-    \bibitem{yolo}
-    YOLO v8 (Ultralytics). \url{https://docs.ultralytics.com/}
+    \bibitem{gmaps} Google Maps Traffic API. \url{https://developers.google.com/maps/documentation/traffic}
 
-    \bibitem{gmaps}
-    Google Maps Traffic API. \url{https://developers.google.com/maps/documentation/traffic}
+    \bibitem{groq} Groq API. \url{https://console.groq.com/docs}
 
-    \bibitem{groq}
-    Groq API. \url{https://console.groq.com/docs}
+    \bibitem{openrouter} OpenRouter. \url{https://openrouter.ai/docs}
 
-    \bibitem{openrouter}
-    OpenRouter. \url{https://openrouter.ai/docs}
+    \bibitem{alibaba} Alibaba Qwen API. \url{https://qwenlm.github.io/}
 
-    \bibitem{alibaba}
-    Alibaba Qwen API. \url{https://qwenlm.github.io/}
+    \bibitem{scats} SCATS Traffic System. \url{https://en.wikipedia.org/wiki/SCATS}
 
-    \bibitem{scats}
-    SCATS Traffic System. \url{https://en.wikipedia.org/wiki/SCATS}
-
-    \bibitem{gdgoc}
-    GDGoC Hackathon Vietnam 2026. \url{https://gdg.community.dev/gdgoc-hackathon-vietnam-2026/}
-
+    \bibitem{gdgoc} GDGoC Hackathon Vietnam 2026. \url{https://gdg.community.dev/gdgoc-hackathon-vietnam-2026/}
 \end{thebibliography}
 
 % ============================================
-\section{CONTACT}
+\section{Thông tin liên hệ}
 % ============================================
 
 \begin{itemize}
     \item \textbf{Email:} {[EMAIL - CẦN CẬP NHẬT]}
-    \item \textbf{Phone:} {[SỐ ĐIỆN THOẠI - CẦN CẬP NHẬT]}
+    \item \textbf{Số điện thoại:} {[SỐ ĐIỆN THOẠI - CẦN CẬP NHẬT]}
 \end{itemize}
 
 \vfill
 
 \begin{center}
-    \textit{Proposal created: 2026-03-24}\\
-    \textit{Project: TrafficFlow Agent — GDGoC Hackathon Vietnam 2026}\\
+    \textit{Hồ sơ dự án: TrafficFlow Agent}\\
+    \textit{GDGoC Hackathon Vietnam 2026}\\
     \textit{Theme: ``Agents of Change'' — Agentic AI for Smart Traffic Management}
 \end{center}
 
