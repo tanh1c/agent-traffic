@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 
-\usepackage[vietnamese]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
 \usepackage[T5,T1]{fontenc}
 \usepackage{times}
 \usepackage{geometry}
@@ -9,6 +9,8 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{makecell}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{amsmath}
@@ -33,21 +35,48 @@
 \rhead{\textbf{GDGoC Hackathon Vietnam 2026}}
 \lhead{\textbf{Hồ sơ dự án}}
 \cfoot{\thepage}
+\setlength{\headheight}{15.4pt}
+\setlength{\emergencystretch}{3em}
+\setlength{\hfuzz}{20pt}
+\hbadness=10000
 
 \begin{document}
+\pagenumbering{gobble}
 
 \begin{titlepage}
     \centering
-    \vspace*{1.5cm}
 
-    \textbf{HỒ SƠ DỰ ÁN}\\
-    \textbf{GDGoC HACKATHON VIETNAM 2026}\\[2cm]
+    % Header
+    \vspace*{1cm}
+    {\LARGE\textbf{GDGoC HACKATHON VIETNAM 2026}\par}
+    \vspace*{0.5cm}
+    {\large\textbf{HỒ SƠ DỰ ÁN}\par}
+    \vspace{1.5cm}
 
-    \textbf{Tên đội:}\\
-    {[TÊN ĐỘI - CẦN CẬP NHẬT]}\\[1.5cm]
+    % Title box
+    \framebox{
+        \parbox{0.85\textwidth}{
+            \centering
+            \vspace{0.5cm}
+            {\Huge\textbf{TrafficFlow Agent}\par}
+            \vspace{0.3cm}
+            {\LARGE\textbf{Hệ thống Agentic AI Tự động}\par}
+            {\LARGE\textbf{Điều phối Giao thông Thông minh}\par}
+            \vspace{0.5cm}
+        }
+    }
+    \vspace{1.5cm}
 
-    \textbf{Thành viên}\\[0.5cm]
-    \begin{tabular}{|c|c|c|}
+    % Team info
+    {\Large\textbf{Tên đội:}\par}
+    \vspace{0.3cm}
+    {\LARGE\framebox{\parbox{0.5\textwidth}{\centering{[TÊN ĐỘI - CẦN CẬP NHẬT]}}}\par}
+    \vspace{1.5cm}
+
+    % Members table
+    {\Large\textbf{Thành viên}\par}
+    \vspace{0.5cm}
+    \begin{tabular}{|c|m{5.5cm}|m{4cm}|}
         \hline
         \textbf{STT} & \textbf{Họ và tên} & \textbf{Vai trò} \\
         \hline
@@ -59,12 +88,17 @@
         \hline
         4 & {[Họ và tên - CẦN CẬP NHẬT]} & {[Vai trò - CẦN CẬP NHẬT]} \\
         \hline
-    \end{tabular}\\[2cm]
+    \end{tabular}
+    \vspace{2cm}
+
+    % Theme
+    {\large\textbf{Theme: } \textit{``Agents of Change''}\par}
 
     \vfill
 \end{titlepage}
 
 \newpage
+\pagenumbering{arabic}
 
 % ============================================
 \section{Tổng quan dự án}
@@ -164,19 +198,19 @@ TrafficFlow Agent là hệ thống hybrid gồm 3 lớp chính:
 
 \subsubsection{Điểm khác biệt của giải pháp}
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
-    \begin{tabular}{|l|p{5.5cm}|p{5.5cm}|}
+    \begin{tabular}{|l|p{6cm}|p{6cm}|}
         \hline
         \textbf{So sánh} & \textbf{Google Maps Traffic} & \textbf{TrafficFlow Agent} \\
         \hline
         Dữ liệu nguồn & GPS probe (điện thoại ẩn danh) & Camera real-time + GPS \\
         \hline
-        Độ chi tiết & Toàn tuyến, không phân biệt làn xe & Từng làn, từng loại phương tiện \\
+        Độ chi tiết & Toàn tuyến, không phân biệt làn & Từng làn, từng loại phương tiện \\
         \hline
         Phát hiện sự cố & Không (chỉ thấy đỏ) & Phát hiện tai nạn, vật cản trực tiếp \\
         \hline
-        Điều khiển đèn & Không thể & Có (tích hợp SCATS/ITMS API) \\
+        Điều khiển đèn & Không & Có (tích hợp SCATS/ITMS API) \\
         \hline
         Tính Agentic & Không & Có (reasoning, planning, autonomy, feedback loop) \\
         \hline
@@ -276,9 +310,9 @@ TrafficFlow Agent là hệ thống hybrid gồm 3 lớp chính:
 
 \textbf{Ngày 1 — Nền tảng và Demo cơ bản:}
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
-    \begin{tabular}{|p{3cm}|p{9.5cm}|}
+    \begin{tabular}{|m{3cm}|m{9.5cm}|}
         \hline
         \textbf{Thời gian} & \textbf{Nhiệm vụ} \\
         \hline
@@ -297,9 +331,9 @@ TrafficFlow Agent là hệ thống hybrid gồm 3 lớp chính:
 
 \textbf{Ngày 2 — Agent và Hoàn thiện:}
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
-    \begin{tabular}{|p{3cm}|p{9.5cm}|}
+    \begin{tabular}{|m{3cm}|m{9.5cm}|}
         \hline
         \textbf{Thời gian} & \textbf{Nhiệm vụ} \\
         \hline
@@ -325,9 +359,9 @@ TrafficFlow Agent là hệ thống hybrid gồm 3 lớp chính:
 
 \subsubsection{Sau hackathon}
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
-    \begin{tabular}{|p{3cm}|p{9.5cm}|}
+    \begin{tabular}{|m{3cm}|m{9.5cm}|}
         \hline
         \textbf{Giai đoạn} & \textbf{Mục tiêu} \\
         \hline
@@ -346,7 +380,7 @@ TrafficFlow Agent là hệ thống hybrid gồm 3 lớp chính:
     \item \textbf{Kỹ thuật:} Các công nghệ đều đã proven (YOLO, LLM, Maps API) — không có rủi ro công nghệ lớn
     \item \textbf{Hạ tầng:} Google Cloud Platform cung cấp đủ tài nguyên, có GCP credits từ hackathon
     \item \textbf{Nhân lực:} 3--4 thành viên đủ để hoàn thành MVP trong 2 ngày hackathon
-    \item \textbfChi phí:} Rất thấp (xem mục ngân sách bên dưới)
+    \item \textbf{Chi phí:} Rất thấp (xem mục ngân sách bên dưới)
     \item \textbf{Xã hội:} Giải pháp được thiết kế phù hợp với context Việt Nam, có human-in-the-loop để đảm bảo an toàn
 \end{itemize}
 
