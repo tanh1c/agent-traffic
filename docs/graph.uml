@@ -58,10 +58,10 @@ package "Monitoring & Control Layer" #DCFCE7 {
   [Human Approval\n(critical cases, 30s timeout)] as APPROVAL #65A30D
 }
 
-' ===== Main data flow =====
-YOLO -down-> ORCH
-MAP -down-> ORCH
-WEA -down-> ORCH
+' ===== Data flow: Camera/Maps/Weather -> Context Builder =====
+YOLO -down-> CTX
+MAP -down-> CTX
+WEA -down-> CTX
 
 ' ===== Agent outputs =====
 DEC -down-> SIM
@@ -79,8 +79,22 @@ APPROVAL -down-> SIM
 APPROVAL -down-> SCATS
 
 ' ===== Feedback loop =====
-SIM -up-> ORCH
-SCATS -up-> ORCH
+SIM -up-> CTX
+SCATS -up-> CTX
+
+' ===== Notes =====
+note top of ORCH
+API Gateway receives
+requests from Dashboard
+and Admin Console
+end note
+
+note right of CTX
+Context Builder collects
+all data (camera, maps,
+weather) to build
+traffic context
+end note
 
 ' ===== Layout helpers =====
 CAM -[hidden]- MAP
