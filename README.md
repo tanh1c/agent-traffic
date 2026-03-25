@@ -41,7 +41,9 @@ agent-traffic/
 
 ## Agent Architecture
 
-```
+![TrafficFlow Agent Architecture](./trafficflow.png)
+
+```text
 Camera (YOLO) + Google Maps
         │
         ▼
