@@ -1,0 +1,92 @@
+@startuml
+title TrafficFlow Agent Architecture
+
+top to bottom direction
+skinparam shadowing false
+skinparam componentStyle rectangle
+skinparam packageStyle rectangle
+skinparam linetype ortho
+skinparam ArrowColor #4B5563
+skinparam defaultTextAlignment center
+skinparam BackgroundColor #FFFFFF
+
+' =========================
+' DATA LAYER
+' =========================
+package "Data Layer" #E0F2FE {
+  [Camera Streams] as CAM #BAE6FD
+  [YOLO Vehicle Detection] as YOLO #7DD3FC
+  [Google Maps Traffic API] as MAP #38BDF8
+  [Weather / Event Data] as WEA #0EA5E9
+
+  CAM -down-> YOLO
+}
+
+' =========================
+' AGENT LAYER
+' =========================
+package "Agent Layer" #FEF3C7 {
+  [API Gateway / Orchestrator] as ORCH #FDE68A
+  [Context Builder\n(metrics + goals + policy)] as CTX #FCD34D
+  [LLM Reasoner\n(multi-provider)] as LLM #F59E0B
+  [Tool Runtime / Validator\n(simulator + rules + safety checks)] as VAL #FB923C
+  [Decision Engine\n(action + duration + severity)] as DEC #F97316
+
+  ORCH -down-> CTX
+  CTX -right-> LLM
+  CTX -down-> VAL
+  LLM -down-> DEC
+  VAL -right-> DEC
+}
+
+' =========================
+' EXECUTION LAYER
+' =========================
+package "Execution Layer" #FCE7F3 {
+  [Simulation Engine (Demo)] as SIM #F9A8D4
+  [SCATS / ITMS API (Future)] as SCATS #F472B6
+}
+
+' =========================
+' MONITORING & CONTROL LAYER
+' =========================
+package "Monitoring & Control Layer" #DCFCE7 {
+  [Operator Dashboard] as DASH #86EFAC
+  [Admin Console] as ADMIN #4ADE80
+  [Event & Decision Log] as LOG #22C55E
+  [Alert Manager] as ALERT #16A34A
+  [Human Approval\n(critical cases, 30s timeout)] as APPROVAL #65A30D
+}
+
+' ===== Main data flow =====
+YOLO -down-> ORCH
+MAP -down-> ORCH
+WEA -down-> ORCH
+
+' ===== Agent outputs =====
+DEC -down-> SIM
+DEC -down-> SCATS
+
+' ===== Monitoring =====
+DEC -right-> LOG
+DEC -right-> ALERT
+DASH -left-> ORCH
+ADMIN -left-> ORCH
+
+' ===== Human-in-the-loop =====
+DEC -down-> APPROVAL
+APPROVAL -down-> SIM
+APPROVAL -down-> SCATS
+
+' ===== Feedback loop =====
+SIM -up-> ORCH
+SCATS -up-> ORCH
+
+' ===== Layout helpers =====
+CAM -[hidden]- MAP
+MAP -[hidden]- WEA
+DASH -[hidden]- ADMIN
+LOG -[hidden]- ALERT
+SIM -[hidden]- SCATS
+
+@enduml
